@@ -419,18 +419,6 @@ body {
   color: var(--n-muted);
 }
 
-.nova-ad-wrap {
-  margin-top: 14px;
-  border: 1px solid var(--n-line);
-  border-radius: 18px;
-  background: var(--n-card);
-  padding: 8px;
-}
-
-.nova-ad-slot {
-  min-height: 120px;
-}
-
 .nova-error-panel {
   color: #ff4d5c;
 }
@@ -624,6 +612,32 @@ body {
   cursor: pointer;
 }
 
+.nova-side-ad {
+  position: fixed;
+  top: 108px;
+  width: 160px;
+  z-index: 40;
+  border: 1px solid var(--n-line);
+  border-radius: 14px;
+  background: var(--n-card);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 8px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+.nova-side-ad-left {
+  left: 10px;
+}
+
+.nova-side-ad-right {
+  right: 10px;
+}
+
+.nova-side-ad-slot {
+  min-height: 520px;
+}
+
 .share-wrap {
   width: min(960px, calc(100vw - 32px));
   margin: 24px auto 44px;
@@ -741,5 +755,11 @@ body {
   .nova-iap-head,
   .nova-iap-row {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 1280px) {
+  .nova-side-ad {
+    display: none;
   }
 }

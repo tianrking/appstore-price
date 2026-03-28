@@ -576,12 +576,6 @@ export function AppStoreClient() {
           {errorAppList ? <p className="nova-error">{errorAppList}</p> : null}
         </section>
 
-        {heroAdSlot ? (
-          <section className="nova-ad-wrap" aria-label="Advertisement">
-            <AdSenseSlot slot={heroAdSlot} className="nova-ad-slot" />
-          </section>
-        ) : null}
-
         {appList.length > 0 && !loadingAppList ? (
           <section className="nova-results-panel">
             <div className="nova-panel-head">
@@ -618,12 +612,6 @@ export function AppStoreClient() {
 
         {loadingDetail ? <section className="nova-status">{t.loadingMatrix}</section> : null}
         {errorDetail ? <section className="nova-error-panel">{errorDetail}</section> : null}
-
-        {contentAdSlot ? (
-          <section className="nova-ad-wrap" aria-label="Advertisement">
-            <AdSenseSlot slot={contentAdSlot} className="nova-ad-slot" />
-          </section>
-        ) : null}
 
         {(results.length > 0 || comparisonResults.length > 0) && !loadingDetail && appListCollapsed ? (
           <section className="nova-analysis-panel">
@@ -765,6 +753,18 @@ export function AppStoreClient() {
           <section className="nova-empty">{t.emptyGuide}</section>
         ) : null}
       </main>
+
+      {heroAdSlot ? (
+        <aside className="nova-side-ad nova-side-ad-left" aria-label="Left Advertisement">
+          <AdSenseSlot slot={heroAdSlot} className="nova-side-ad-slot" />
+        </aside>
+      ) : null}
+
+      {contentAdSlot ? (
+        <aside className="nova-side-ad nova-side-ad-right" aria-label="Right Advertisement">
+          <AdSenseSlot slot={contentAdSlot} className="nova-side-ad-slot" />
+        </aside>
+      ) : null}
 
       {showTopButton ? (
         <button className="nova-float" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
