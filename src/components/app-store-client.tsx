@@ -24,7 +24,7 @@ const TEXT: Record<Locale, Record<string, string>> = {
     light: "Light",
     dark: "Dark",
     heroKicker: "App Store Arbitrage Lens",
-    heroTitle: "Discover pricing gaps before you buy",
+    heroTitle: "Find lower prices faster",
     heroCopy: "Search once, compare globally, and inspect in-app purchase tiers across markets.",
     regionsTracked: "regions tracked",
     hourlyArch: "Hourly-access architecture",
@@ -67,7 +67,7 @@ const TEXT: Record<Locale, Record<string, string>> = {
     light: "淺色",
     dark: "深色",
     heroKicker: "App Store 區域價差雷達",
-    heroTitle: "購買前先看全球價格差",
+    heroTitle: "更快找到更低價格",
     heroCopy: "一次搜尋，同步比較各區售價與內購層級，快速找到更划算方案。",
     regionsTracked: "個地區追蹤",
     hourlyArch: "即時匯率架構",
@@ -110,7 +110,7 @@ const TEXT: Record<Locale, Record<string, string>> = {
     light: "Claro",
     dark: "Oscuro",
     heroKicker: "Radar de Arbitraje App Store",
-    heroTitle: "Descubre diferencias de precio antes de comprar",
+    heroTitle: "Encuentra mejores precios",
     heroCopy: "Busca una vez, compara globalmente y revisa niveles de compras dentro de la app.",
     regionsTracked: "regiones monitoreadas",
     hourlyArch: "Arquitectura con tipo de cambio en tiempo real",
@@ -287,6 +287,15 @@ export function AppStoreClient() {
 
   useEffect(() => {
     localStorage.setItem("locale", locale);
+  }, [locale]);
+
+  useEffect(() => {
+    const titleMap: Record<Locale, string> = {
+      en: "Price Atlas",
+      "zh-Hant": "Price Atlas｜全球價格地圖",
+      es: "Price Atlas | Mapa global de precios"
+    };
+    document.title = titleMap[locale];
   }, [locale]);
 
   useEffect(() => {
