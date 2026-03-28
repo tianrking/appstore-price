@@ -15,6 +15,7 @@ A full-stack App Store price intelligence platform built with Node.js + React (N
 - Dark / light / system theme
 - Shareable app pages (`/app/[id]`) with Open Graph preview cards
 - Structured SEO outputs (`robots.txt`, `sitemap.xml`, JSON-LD on share pages)
+- AdSense integration (Auto Ads + optional manual slot placeholders)
 - Compatible legacy endpoints (`/app/*`) and modern REST endpoints (`/api/*`)
 - In-memory cache by default, optional shared Redis cache for multi-instance deployments
 
@@ -50,6 +51,9 @@ Open `http://localhost:3000`
 5. Optional env vars for shared cache:
    - `UPSTASH_REDIS_REST_URL`
    - `UPSTASH_REDIS_REST_TOKEN`
+6. Optional manual AdSense slots:
+   - `NEXT_PUBLIC_ADSENSE_SLOT_HERO`
+   - `NEXT_PUBLIC_ADSENSE_SLOT_CONTENT`
 
 ## Deploy on Cloudflare Workers (coexist with Vercel)
 

@@ -419,6 +419,18 @@ body {
   color: var(--n-muted);
 }
 
+.nova-ad-wrap {
+  margin-top: 14px;
+  border: 1px solid var(--n-line);
+  border-radius: 18px;
+  background: var(--n-card);
+  padding: 8px;
+}
+
+.nova-ad-slot {
+  min-height: 120px;
+}
+
 .nova-error-panel {
   color: #ff4d5c;
 }

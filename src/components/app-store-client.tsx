@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { AdSenseSlot } from "@/components/adsense-slot";
 import type { AppInfoComparisonItem, AppInfoItem, AppListItem } from "@/lib/types";
 
 type Locale = "en" | "zh-Hant" | "es";
@@ -267,6 +268,8 @@ export function AppStoreClient() {
   const blurTimeoutRef = useRef<number | null>(null);
 
   const t = TEXT[locale];
+  const heroAdSlot = process.env.NEXT_PUBLIC_ADSENSE_SLOT_HERO;
+  const contentAdSlot = process.env.NEXT_PUBLIC_ADSENSE_SLOT_CONTENT;
 
   const displayAreaName = useMemo(() => {
     return (code: string, fallback: string) => AREA_NAME_MAP[locale][code] ?? fallback;
@@ -573,6 +576,12 @@ export function AppStoreClient() {
           {errorAppList ? <p className="nova-error">{errorAppList}</p> : null}
         </section>
 
+        {heroAdSlot ? (
+          <section className="nova-ad-wrap" aria-label="Advertisement">
+            <AdSenseSlot slot={heroAdSlot} className="nova-ad-slot" />
+          </section>
+        ) : null}
+
         {appList.length > 0 && !loadingAppList ? (
           <section className="nova-results-panel">
             <div className="nova-panel-head">
@@ -609,6 +618,12 @@ export function AppStoreClient() {
 
         {loadingDetail ? <section className="nova-status">{t.loadingMatrix}</section> : null}
         {errorDetail ? <section className="nova-error-panel">{errorDetail}</section> : null}
+
+        {contentAdSlot ? (
+          <section className="nova-ad-wrap" aria-label="Advertisement">
+            <AdSenseSlot slot={contentAdSlot} className="nova-ad-slot" />
+          </section>
+        ) : null}
 
         {(results.length > 0 || comparisonResults.length > 0) && !loadingDetail && appListCollapsed ? (
           <section className="nova-analysis-panel">
