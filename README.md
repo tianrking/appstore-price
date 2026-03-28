@@ -42,6 +42,17 @@ npm run dev
 1. 推送到 Git 仓库
 2. 在 Vercel 导入该仓库
 3. Framework 选择 Next.js，使用默认构建命令即可
+4. 如果你使用 Upstash Redis，在 Vercel Project Settings -> Environment Variables 配置：
+   `UPSTASH_REDIS_REST_URL`、`UPSTASH_REDIS_REST_TOKEN`
+5. 点击 Deploy
+
+### Vercel 推荐设置
+
+- Node.js Version: 20.x（默认即可）
+- Build Command: `npm run build`
+- Install Command: `npm install`
+- Output Directory: 留空（Next.js 自动处理）
+- 本仓库已包含 `vercel.json`，接口函数 `maxDuration` 已设置为 `60s`
 
 ## API
 
